@@ -1,0 +1,48 @@
+{
+  "title": "Sábio",
+  "headline": "“Quero escolher o que é melhor pra mim”",
+  "coverPictureURL": {
+    "raw": null,
+    "full": "https://assets.warrenbrasil.com/images/suitability/01_sabio.jpg",
+    "regular": "https://assets.warrenbrasil.com/images/suitability/01_sabio_mobile.jpg",
+    "small": null,
+    "thumb": null
+  },
+  "sections": [
+    {
+      "type": "content",
+      "title": "Em busca da melhor curadoria",
+      "content": [
+        {
+          "type": "text",
+          "content": "Você conhece o mundo dos investimentos e gosta de ter as melhores informações para entender como incrementar os seus rendimentos."
+        }
+      ]
+    },
+    {
+      "type": "media",
+      "title": "Na plataforma você vai",
+      "content": [
+        {
+          "type": "image",
+          "alt": "Texto alternativo da imagem",
+          "url": {
+            "raw": null,
+            "full": "https://assets.warrenbrasil.com/images/suitability/02_sabio.jpg",
+            "regular": "https://assets.warrenbrasil.com/images/suitability/02_sabio_mobile.jpg",
+            "small": null,
+            "thumb": null
+          }
+        },
+        {
+          "type": "list",
+          "content": [
+            "Acompanhar todos os detalhes sobre os seus rendimentos na tela do celular e no computador.",
+            "Receber relatórios transparentes e detalhados sobre a evolução do seu patrimônio.",
+            "Ter atendimento com pessoas reais sempre que precisar."
+          ]
+        }
+      ]
+    }
+  ]
+}

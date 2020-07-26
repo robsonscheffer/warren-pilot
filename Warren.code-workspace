@@ -1,0 +1,19 @@
+{
+    "folders": [
+        {
+            "path": "."
+        }
+    ],
+    "settings": {
+        "spellright.language": [
+            "en",
+            "pt"
+        ],
+        "spellright.documentTypes": [
+            "markdown",
+            "latex",
+            "plaintext",
+            "jsonc"
+        ]
+    }
+}
