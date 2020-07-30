@@ -1,0 +1,72 @@
+import { Fragment } from 'react'
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks'
+
+import { Grid, Boxed } from '../../Storybook/Fragments.js'
+
+import Icon from './Icon.js'
+import { MessageIcon, ArrowIcon } from './index'
+
+<Meta title="Icons|SVG" component={Icon} />
+
+# Icons
+
+Simple SVG as React components
+
+### Primary
+
+<Preview>
+  <Story name="Primary colors">
+    <Grid columns={12}>
+      <Boxed>
+        <MessageIcon variant="primary" />
+      </Boxed>
+      <Boxed>
+        <ArrowIcon variant="primary" />
+      </Boxed>
+    </Grid>
+  </Story>
+</Preview>
+
+### Secondary
+
+<Preview>
+  <Story name="Secondary colors">
+    <Grid columns={12}>
+      <Boxed>
+        <MessageIcon variant="secondary" />
+      </Boxed>
+      <Boxed>
+        <ArrowIcon variant="secondary" />
+      </Boxed>
+    </Grid>
+  </Story>
+</Preview>
+
+### Custom fill colors
+
+<Preview>
+  <Story name="Custom Colors">
+    <Grid columns={12}>
+      <Boxed style={{ backgroundColor: 'black' }}>
+        <MessageIcon fill="#fff" />
+      </Boxed>
+      <Boxed style={{ backgroundColor: 'black' }}>
+        <ArrowIcon fill="#fff" />
+      </Boxed>
+      <Boxed>
+        <MessageIcon fill="#000" />
+      </Boxed>
+      <Boxed>
+        <ArrowIcon fill="#000" />
+      </Boxed>
+      <Boxed>
+        <MessageIcon fill="red" />
+      </Boxed>
+      <Boxed>
+        <ArrowIcon fill="red" />
+      </Boxed>
+    </Grid>
+  </Story>
+</Preview>
+
+<Props of={Icon} />

@@ -1,0 +1,40 @@
+import { Fragment } from 'react'
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks'
+
+import { Title, SubTitle, Heading } from './index'
+
+<Meta title="Typography|Headers" component={Heading} />
+
+# Heading
+
+Common used as `H1` header
+
+<Preview>
+  <Story name="Heading">
+    <Fragment>
+      <Heading>Spawn Angmar!</Heading>
+    </Fragment>
+  </Story>
+</Preview>
+
+### Title
+
+<Preview>
+  <Story name="Title">
+    <Fragment>
+      <Title>Spawn Angmar!</Title>
+    </Fragment>
+  </Story>
+</Preview>
+
+### SubTitle
+
+<Preview>
+  <Story name="SubTitle">
+    <Fragment>
+      <SubTitle>Spawn Angmar!</SubTitle>
+    </Fragment>
+  </Story>
+</Preview>
+
+<Props of={Title} />

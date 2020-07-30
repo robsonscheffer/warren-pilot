@@ -1,0 +1,61 @@
+import { Fragment } from 'react'
+import { Meta, Story, Preview } from '@storybook/addon-docs/blocks'
+
+import { Text } from './index'
+
+<Meta title="Typography|Text" component={Text} />
+
+# Typography/Text
+
+> Should be used to present characters on screen or to extend Text styles to another component
+
+`<Text />`
+
+---
+
+#### Small text
+
+<Preview>
+  <Story name="Small">
+    <Fragment>
+      <Text size="small">
+        What's the Elvish word for 'friend'? Armor pockets guarantee tide base
+        Tom adventures lessened strayed save friends proof. Pouring master's
+        brook hero painted J.R.R. Tolkien twice troublemakers. Éothain
+        eavesdropping spared lately steward frightened mud birdses pints.
+      </Text>
+    </Fragment>
+  </Story>
+</Preview>
+
+---
+
+#### Medium text
+
+<Preview>
+  <Story name="Normal">
+    <Fragment>
+      <Text>
+        What's the Elvish word for 'friend'? Armor pockets guarantee tide base
+        Tom adventures lessened strayed save friends proof. Pouring master's
+        brook hero painted J.R.R. Tolkien twice troublemakers. Éothain
+        eavesdropping spared lately steward frightened mud birdses pints.
+      </Text>
+    </Fragment>
+  </Story>
+</Preview>
+
+#### Large text
+
+<Preview>
+  <Story name="Large">
+    <Fragment>
+      <Text size="large">
+        What's the Elvish word for 'friend'? Armor pockets guarantee tide base
+        Tom adventures lessened strayed save friends proof. Pouring master's
+        brook hero painted J.R.R. Tolkien twice troublemakers. Éothain
+        eavesdropping spared lately steward frightened mud birdses pints.
+      </Text>
+    </Fragment>
+  </Story>
+</Preview>
