@@ -3,7 +3,7 @@ import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks'
 
 import { Title, SubTitle, Heading } from './index'
 
-<Meta title="Typography|Headers" component={Heading} />
+<Meta title="Atoms|Typography\Headers" component={Heading} />
 
 # Heading
 
@@ -33,6 +33,18 @@ Common used as `H1` header
   <Story name="SubTitle">
     <Fragment>
       <SubTitle>Spawn Angmar!</SubTitle>
+    </Fragment>
+  </Story>
+</Preview>
+
+### Color management
+
+**primary** and **secondary** available, and custom color on color property
+
+<Preview>
+  <Story name="Custom color">
+    <Fragment>
+      <SubTitle color="red">Spawn Angmar!</SubTitle>
     </Fragment>
   </Story>
 </Preview>

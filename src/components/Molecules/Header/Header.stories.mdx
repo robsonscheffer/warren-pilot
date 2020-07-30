@@ -1,0 +1,22 @@
+import { Fragment } from 'react'
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks'
+
+import { Grid } from '../../Storybook/Fragments'
+
+import Header from './index'
+
+<Meta title="Molecules|Header" component={Header} />
+
+## Header
+
+<Preview>
+  <Story name="Default">
+    <Grid columns={1}>
+      <Header text="SPAWN ANGMAR!" />
+    </Grid>
+  </Story>
+</Preview>
+
+## Props
+
+<Props of={Header} />
