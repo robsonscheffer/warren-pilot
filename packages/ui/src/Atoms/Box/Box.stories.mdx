@@ -1,0 +1,22 @@
+import { Fragment } from 'react'
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks'
+
+import { Grid, Boxed } from '../../core/Storybook/Fragments'
+
+import Box from './index'
+
+<Meta title="Atoms|Box" component={Box} />
+
+## Box
+
+<Preview>
+  <Story name="Box">
+    <Grid columns={1}>
+      <Box>Some blocked content</Box>
+    </Grid>
+  </Story>
+</Preview>
+
+## Props
+
+<Props of={Box} />

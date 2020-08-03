@@ -1,0 +1,108 @@
+import { Fragment } from 'react'
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks'
+
+import { Grid } from '../../core/Storybook/Fragments'
+
+import Button from './index'
+
+<Meta title="Atoms|Button" component={Button} />
+
+## Button definitions
+
+### Default use
+
+The default use it`s set to **primary** variant, **medium** size and **rounded**
+
+`<Button>Primary Button</Button>`
+
+<Preview>
+  <Story name="Default">
+    <Grid columns={3}>
+      <Button variant="primary">Primary Button</Button>
+      <Button variant="secondary">Secondary Button</Button>
+    </Grid>
+  </Story>
+</Preview>
+
+## Button sizes
+
+There are three sizes [small, medium, large], they can be set through `size` prop
+
+### Small
+
+<Preview>
+  <Story name="Small">
+    <Grid columns={3}>
+      <Button size="small" variant="primary">
+        Primary Button
+      </Button>
+      <Button size="small" variant="secondary">
+        Secondary Button
+      </Button>
+    </Grid>
+  </Story>
+</Preview>
+
+### Medium
+
+<Preview>
+  <Story name="Medium">
+    <Grid columns={3}>
+      <Button size="medium" variant="primary">
+        Primary Button
+      </Button>
+      <Button size="medium" variant="secondary">
+        Secondary Button
+      </Button>
+    </Grid>
+  </Story>
+</Preview>
+
+### Large
+
+<Preview>
+  <Story name="Large">
+    <Grid columns={3}>
+      <Button size="large" variant="primary">
+        Primary Button
+      </Button>
+      <Button size="large" variant="secondary">
+        Secondary Button
+      </Button>
+    </Grid>
+  </Story>
+</Preview>
+
+### Square
+
+<Preview>
+  <Story name="Square">
+    <Grid columns={3}>
+      <Button variant="primary" rounded={false}>
+        Primary Button
+      </Button>
+      <Button variant="secondary" rounded={false}>
+        Secondary Button
+      </Button>
+    </Grid>
+  </Story>
+</Preview>
+
+### Disabled
+
+<Preview>
+  <Story name="Disabled">
+    <Grid columns={3}>
+      <Button variant="primary" disabled>
+        Primary Button
+      </Button>
+      <Button variant="secondary" disabled>
+        Secondary Button
+      </Button>
+    </Grid>
+  </Story>
+</Preview>
+
+## Props
+
+<Props of={Button} />

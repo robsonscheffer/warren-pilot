@@ -1,0 +1,24 @@
+import { Fragment } from 'react'
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks'
+import { Grid, Row } from '../../../../core/Storybook/Fragments'
+import { Form } from './index'
+
+<Meta title="Atoms|Forms" component={Form} />
+
+### Form
+
+Abstract component to form, we use here the `react-hook-form`
+
+More on https://react-hook-form.com/get-started#Quickstart
+
+<Preview>
+  <Story name="Form">
+    <Grid columns={1}>
+      <Form>...Put your fields here</Form>
+    </Grid>
+  </Story>
+</Preview>
+
+## Props
+
+<Props of={Form} />

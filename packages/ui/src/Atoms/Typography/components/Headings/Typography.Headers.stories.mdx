@@ -1,0 +1,78 @@
+import { Fragment } from 'react'
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks'
+
+import { HeadingL, HeadingM, HeadingS } from './index'
+
+<Meta title="Atoms|Typography/Headings" />
+
+# Typography/Headings
+
+Common used as `H1, H2, H3...` header
+
+### Heading large
+
+<Preview>
+  <Story name="HeadingL">
+    <Fragment>
+      <HeadingL tag="h1">Spawn Angmar!</HeadingL>
+    </Fragment>
+  </Story>
+</Preview>
+
+### Heading medium
+
+<Preview>
+  <Story name="HeadingM">
+    <Fragment>
+      <HeadingM tag="h2">Spawn Angmar!</HeadingM>
+    </Fragment>
+  </Story>
+</Preview>
+
+### Heading small
+
+<Preview>
+  <Story name="HeadingS">
+    <Fragment>
+      <HeadingS tag="h3">Spawn Angmar!</HeadingS>
+    </Fragment>
+  </Story>
+</Preview>
+
+### Variations
+
+> Color, padings, font-style, borders...
+
+<Preview>
+  <Story name="Variations">
+    <Fragment>
+      <HeadingL
+        color="textBodyInverse"
+        bg="primary"
+        p={[2]}
+        mb={[2]}
+        borderRadius={10}
+      >
+        Spawn Angmar!
+      </HeadingL>
+      <HeadingL
+        color="textBody"
+        bg="secondary"
+        p={[2]}
+        fontStyle="italic"
+        borderRadius={10}
+      >
+        Spawn Angmar!
+      </HeadingL>
+    </Fragment>
+  </Story>
+</Preview>
+
+### Extend all props from _styled-system_ pkg
+
+_Styled system gives you great power, use with wisdom_
+
+https://styled-system.com/table
+
+<Props of={HeadingL} />
+````

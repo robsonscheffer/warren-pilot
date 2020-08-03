@@ -1,0 +1,102 @@
+import { Fragment } from 'react'
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks'
+
+import { Grid } from '../../core/Storybook/Fragments'
+
+import TalkingBoard from './index'
+import { AvatarTextIcon, WarrenIcon } from '../../Atoms/Icon'
+const Warren = () => <WarrenIcon />
+const Me = () => <AvatarTextIcon fill="black">S</AvatarTextIcon>
+const Bilbo = () => <AvatarTextIcon variant="secondary">B</AvatarTextIcon>
+const Tolkien = () => <AvatarTextIcon fill="textBody">T</AvatarTextIcon>
+const conversation = [
+  {
+    type: 'received',
+    origin: Warren(),
+    text:
+      "It's a dangerous business, Frodo, going out your door. You step onto the road, and if you don't keep your feet, there's no knowing where you might be swept off to",
+  },
+  {
+    type: 'sent',
+    origin: Me(),
+    text: "It's the job that's never started as takes longest to finish",
+  },
+  {
+    type: 'received',
+    origin: Bilbo(),
+    text:
+      "I am old, Gandalf. I don't look it, but I am beginning to feel it in my heart of hearts. Well-preserved indeed! Why, I feel all thin, sort of stretched, if you know what I mean: like butter that has been scraped over too much bread. That can't be right. I need a change, or something.",
+  },
+  {
+    type: 'received',
+    origin: Tolkien(),
+    text:
+      "But in the end it's only a passing thing, this shadow; even darkness must pass.",
+  },
+]
+
+<Meta title="Organisms|Chat/TalkingBoard" component={TalkingBoard} />
+
+### TalkingBoard
+
+Use an list of elements to show messages.
+
+<Preview>
+  <Story name="Message list">
+    <Grid columns={1}>
+      <TalkingBoard messages={conversation} />
+    </Grid>
+  </Story>
+</Preview>
+
+```
+const conversation = [
+  {
+    type: 'received',
+    origin: <WarrenIcon />,
+    text:
+      "It's a dangerous business, Frodo, going out your door. You step onto the road, and if you don't keep your feet, there's no knowing where you might be swept off to",
+  },
+  {
+    type: 'sent',
+    origin: <AvatarTextIcon fill="black">S</AvatarTextIcon>,
+    text: "It's the job that's never started as takes longest to finish",
+  },
+  {
+    type: 'received',
+    origin: <AvatarTextIcon variant="secondary">B</AvatarTextIcon>,
+    text:
+      "I am old, Gandalf. I don't look it, but I am beginning to feel it in my heart of hearts. Well-preserved indeed! Why, I feel all thin, sort of stretched, if you know what I mean: like butter that has been scraped over too much bread. That can't be right. I need a change, or something.",
+  },
+  {
+    type: 'received',
+    origin: <AvatarTextIcon fill="textBody">T</AvatarTextIcon>,
+    text:
+      "But in the end it's only a passing thing, this shadow; even darkness must pass.",
+  },
+]
+```
+
+### With inner scroll
+
+<Preview>
+  <Story name="Inner Scroll">
+    <Grid columns={1}>
+      <TalkingBoard messages={conversation} maxHeight="200px" />
+    </Grid>
+  </Story>
+</Preview>
+
+### With limited container width
+
+<Preview>
+  <Story name="Custom width">
+    <Grid columns={2}>
+      <TalkingBoard messages={conversation} />
+    </Grid>
+  </Story>
+</Preview>
+
+## Props
+
+<Props of={TalkingBoard} />

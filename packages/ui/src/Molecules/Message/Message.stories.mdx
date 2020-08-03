@@ -1,0 +1,49 @@
+import { Fragment } from 'react'
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks'
+
+import { Grid } from '../../core/Storybook/Fragments.js'
+
+import Message from './index'
+import { AvatarTextIcon, WarrenIcon } from '../../Atoms/Icon'
+const Warren = () => <WarrenIcon />
+const Me = () => <AvatarTextIcon fill="black">S</AvatarTextIcon>
+const Bilbo = () => <AvatarTextIcon variant="secondary">B</AvatarTextIcon>
+const Tolkien = () => <AvatarTextIcon fill="textBody">T</AvatarTextIcon>
+
+<Meta title="Molecules|Message" component={Message} />
+
+### Message
+
+MUST be USED on a `<TalkingBoard/>` it shows the text message and the origin from the message.
+
+### Message received
+
+<Preview>
+  <Story name="Text message received">
+    <Grid columns={1}>
+      <Message
+        type="received"
+        text="It's a dangerous business, Frodo, going out your door. You step onto the road, and if you don't keep your feet, there's no knowing where you might be swept off to"
+        origin={Warren()}
+      />
+    </Grid>
+  </Story>
+</Preview>
+
+### Message sent
+
+<Preview>
+  <Story name="Text message sent">
+    <Grid columns={1}>
+      <Message
+        type="sent"
+        text="It's the job that's never started as takes longest to finish"
+        origin={Me()}
+      />
+    </Grid>
+  </Story>
+</Preview>
+
+## Props
+
+<Props of={Message} />

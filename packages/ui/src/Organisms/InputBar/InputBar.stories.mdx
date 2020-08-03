@@ -1,0 +1,24 @@
+import { Fragment } from 'react'
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks'
+
+import { Grid } from '../../core/Storybook/Fragments'
+
+import InputBar from './index'
+
+<Meta title="Organisms|Chat/InputBar" component={InputBar} />
+
+### InputBar
+
+Add a user interactive form to input data
+
+<Preview>
+  <Story name="Text message input">
+    <Grid columns={1}>
+      <InputBar>Navehgaca</InputBar>
+    </Grid>
+  </Story>
+</Preview>
+
+## Props
+
+<Props of={InputBar} />

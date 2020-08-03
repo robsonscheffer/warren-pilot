@@ -1,0 +1,35 @@
+import { Fragment } from 'react'
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks'
+
+import { Grid } from '../../core/Storybook/Fragments'
+
+import FormBuilder from './index'
+const fields = [
+  { type: 'text', mask: null, placeholder: 'Seu nome' },
+  { type: 'number', mask: 'currecy', placeholder: 'R$ 0,00' },
+]
+
+<Meta title="Molecules|FormBuilder" component={FormBuilder} />
+
+### FormBUilder
+
+Use the `FormBuilder` to automatic create forms
+
+```
+const fields = [
+  { type: 'text', mask: null, placeholder: 'Seu nome' },
+  { type: 'number', mask: 'currecy', placeholder: 'R$ 0,00' },
+]
+```
+
+<Preview>
+  <Story name="Dynamic form">
+    <Grid columns={1}>
+      <FormBuilder fields={fields} onSubmit={console.log} />
+    </Grid>
+  </Story>
+</Preview>
+
+## Props
+
+<Props of={FormBuilder} />
