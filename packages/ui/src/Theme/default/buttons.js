@@ -2,6 +2,7 @@ export default {
   sizes: {
     small: {
       height: '29px',
+      minWidth: '150px',
       width: 'fit-content',
       fontSize: 'small',
       padding: [1],

@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { space } from 'styled-system'
 
 const NavWrapper = styled.header`
   width: 100%;
@@ -8,8 +9,12 @@ const NavWrapper = styled.header`
   align-content: space-between;
   flex-wrap: wrap;
   box-sizing: border-box;
-  padding: 24px;
+  ${space}
 `
+NavWrapper.defaultProps = {
+  p: [1],
+}
+
 const Action = styled.div`
   width: 20%;
   max-width: 24px;

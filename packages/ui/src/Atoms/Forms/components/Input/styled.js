@@ -1,8 +1,14 @@
 import styled from 'styled-components'
-import { style } from 'styled-system'
 import { space, fontSize, color } from 'styled-system'
 
-const FormControll = styled.div``
+const FormControll = styled.div`
+  width: 100%;
+  ${space}
+`
+
+FormControll.defaultProps = {
+  mb: [1],
+}
 
 const FormField = styled.input`
   width: 100%;
@@ -27,4 +33,4 @@ FormField.defaultProps = {
   color: 'textBody',
 }
 
-export { FormField }
+export { FormField, FormControll }

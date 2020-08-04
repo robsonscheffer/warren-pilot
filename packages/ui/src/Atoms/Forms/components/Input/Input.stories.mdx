@@ -1,13 +1,22 @@
 import { Fragment } from 'react'
 import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks'
 import { Grid, Row } from '../../../../core/Storybook/Fragments'
-import { Input, NumberInput } from './index'
+
+import Input from './index'
 
 <Meta title="Atoms|Forms/Input`s" component={Input} />
 
 ### Input
 
 Abstract component to input data
+
+The type prop works like the type from HTMLElement `input` could be `email, number or text`, defaults to `text`
+
+```
+  ...type="number"...
+```
+
+### Input type `text`
 
 <Preview>
   <Story name="Input text">
@@ -19,7 +28,7 @@ Abstract component to input data
   </Story>
 </Preview>
 
-### NumberInput
+### Input type `number`
 
 Resolves as an input type `number`
 
@@ -31,6 +40,29 @@ Resolves as an input type `number`
           type="number"
           name="example"
           placeholder="R$ 0,00"
+          validationRules={{
+            required: true,
+            min: 0,
+            max: 99,
+          }}
+        />
+      </Grid>
+    </Row>
+  </Story>
+</Preview>
+
+### Input type `email`
+
+Resolves as an input type `email`
+
+<Preview>
+  <Story name="Input email">
+    <Row bg="lightGray">
+      <Grid columns={1}>
+        <Input
+          type="email"
+          name="example"
+          placeholder="you@gmail.com"
           validationRules={{
             required: true,
             min: 0,

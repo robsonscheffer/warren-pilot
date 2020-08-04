@@ -1,10 +1,14 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { useForm } from 'react-hook-form'
+import { useForm, useFormContext, FormProvider } from 'react-hook-form'
 
 const Form = ({ onSubmit, validationRules, children, ...props }) => {
-  const { handleSubmit } = useForm()
-  return <form onSubmit={handleSubmit(onSubmit)}>{children}</form>
+  const methods = useForm()
+  return (
+    <FormProvider {...methods}>
+      <form onSubmit={methods.handleSubmit(onSubmit)}>{children}</form>
+    </FormProvider>
+  )
 }
 
 Form.defaultProps = {

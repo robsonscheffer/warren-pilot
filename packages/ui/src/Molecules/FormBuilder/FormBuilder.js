@@ -5,15 +5,21 @@ import { Form, Input } from '../../Atoms/Forms'
 
 import { Wrapper } from './styled'
 
+import DynamicForm from './MapFormToComponent'
+
 const FormBuilder = ({ onSubmit, fields, children }) => {
+  const renderComponent = (props, index) => {
+    const FormComponent = DynamicForm[props.field] || null
+    if (!FormComponent) {
+      return null
+    }
+    return <FormComponent key={`index-${index}`} {...props} />
+  }
+
   return (
     <Wrapper>
       <Form onSubmit={onSubmit}>
-        {fields
-          .filter((field) => field.type === 'text' || field.type === 'number')
-          .map((field) => (
-            <Input {...field} />
-          ))}
+        {fields.map((field, index) => renderComponent(field, index))}
         {children}
       </Form>
     </Wrapper>
@@ -28,7 +34,7 @@ FormBuilder.propTypes = {
   onSubmit: PropTypes.func.isRequired,
   fields: PropTypes.arrayOf(
     PropTypes.shape({
-      type: PropTypes.string.isRequired,
+      field: PropTypes.string.isRequired,
       mask: PropTypes.string,
     })
   ),
