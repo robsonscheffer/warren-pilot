@@ -1,11 +1,17 @@
 import { put, call, select } from 'redux-saga/effects'
-import { Message, parseApiMessages } from '../api/suitability'
+import {
+  Message,
+  parseApiMessages,
+  FinishSuitability,
+} from '../api/suitability'
 import {
   loading,
   messagesReceived,
   formDataReceived,
   addUserResponse,
   setFormVisibility,
+  saveUserProfile,
+  finishTalk,
 } from '../ducks/suitability'
 import sagasMiddleware from './middleware'
 
@@ -58,10 +64,10 @@ export function* saveUserMessage(action) {
       yield put(messagesReceived(parseApiMessages(messages)))
       yield put(
         formDataReceived({
-          inputs: result.data.inputs,
-          buttons: result.data.buttons,
-          radios: result.data.radios,
-          checkbox: result.data.checkbox,
+          inputs: result.data.inputs || [],
+          buttons: result.data.buttons || [],
+          radios: result.data.radios || [],
+          checkbox: result.data.checkbox || [],
           responses: result.data.responses ? result.data.responses[0] : '',
           id: result.data.id,
         })
@@ -84,7 +90,6 @@ export function* parseUserResponse(action) {
       messagesReceived([
         {
           text: response,
-          origin: null,
           type: 'sent',
         },
       ])
@@ -94,10 +99,51 @@ export function* parseUserResponse(action) {
       messagesReceived([
         {
           text: payload.label || payload.answers[payload.id],
-          origin: null,
           type: 'sent',
         },
       ])
     )
+  }
+}
+
+export function* finishSuitability(action) {
+  const { payload } = action
+  try {
+    const result = yield call(sagasMiddleware, {
+      service: () => FinishSuitability(payload),
+    })
+
+    if (result) {
+      if (result.data.user) {
+        const { investmentProfile, name, email } = result.data.user
+        yield put(
+          saveUserProfile({
+            investmentProfile,
+            name,
+            email,
+          })
+        )
+      }
+    }
+  } catch (e) {
+    console.error(e)
+  }
+}
+
+export function* watchFormFinish(action) {
+  const { payload } = action
+
+  try {
+    if (payload.id === 'final') {
+      const answers = yield select((state) => state.suitability.answers)
+      yield put(
+        finishTalk({
+          answers,
+          id: payload.id,
+        })
+      )
+    }
+  } catch (e) {
+    console.error(e)
   }
 }

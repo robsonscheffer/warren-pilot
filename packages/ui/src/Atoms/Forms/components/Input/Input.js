@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo } from 'react'
 import PropTypes from 'prop-types'
 
 import ConnectForm from '../Form/ConnectForm'
@@ -8,10 +8,9 @@ import { FormField, FormControll } from './styled'
 const Input = ({ validationRules, ...props }) => {
   return (
     <ConnectForm>
-      {({ register, errors }) => (
+      {({ register }) => (
         <FormControll>
           <FormField {...props} ref={register(validationRules)} />
-          {errors.exampleRequired && <span>This field is required</span>}
         </FormControll>
       )}
     </ConnectForm>
@@ -29,4 +28,4 @@ Input.propTypes = {
   validationRules: PropTypes.object,
 }
 
-export default Input
+export default memo(Input)

@@ -15,7 +15,7 @@ const Received = ({ type, text, typist, onFinish, ...props }) => {
     <WrapperReceived>
       <WarrenIcon />
       <Text as="div" py={[1]} mb={[1]} fontSize="medium" lineHeight="medium">
-        <Typist {...typist} onTypingDone={onFinish}>
+        <Typist {...typist} onTypingDone={() => onFinish(type)}>
           {messages.map((msg, index) => (
             <span key={`typist-${index}`}>
               {msg.text}

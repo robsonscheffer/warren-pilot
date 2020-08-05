@@ -6,13 +6,22 @@ import { Grid } from '../../core/Storybook/Fragments'
 import InputBar from './index'
 const fields = [
   { field: 'text', name: 'name', mask: null, placeholder: 'Seu nome' },
-  // { field: 'number', name: 'total', mask: 'currecy', placeholder: 'R$ 0,00' },
+  { field: 'number', name: 'total', mask: 'currecy', placeholder: 'R$ 0,00' },
+]
+const buttons = [
   {
     field: 'button',
     name: 'bt-ok',
     children: 'OK',
-    size: 'small',
-    type: 'submit',
+    size: 'medium',
+    type: 'button',
+  },
+  {
+    field: 'button',
+    name: 'bt-ok',
+    children: 'Não Sei',
+    size: 'medium',
+    type: 'button',
   },
 ]
 
@@ -30,10 +39,23 @@ const fields = [
 ```
 
 <Preview>
-  <Story name="Text message input">
+  <Story name="With input list">
     <Grid columns={1}>
       <InputBar
         fields={fields}
+        onSubmit={(data) => console.log(data)}
+      ></InputBar>
+    </Grid>
+  </Story>
+</Preview>
+
+### With buttons
+
+<Preview>
+  <Story name="With buttons list">
+    <Grid columns={1}>
+      <InputBar
+        buttons={buttons}
         onSubmit={(data) => console.log(data)}
       ></InputBar>
     </Grid>

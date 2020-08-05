@@ -10,10 +10,11 @@ function* sagasMiddleware({ service, payload }) {
 
     return null
   } catch (err) {
-    return {
-      error:
-        err.response && err.response.data ? err.response.data.message : 'Error',
-    }
+    // return {
+    //   error:
+    //     err.response && err.response.data ? err.response.data.message : 'Error',
+    // }
+    throw new Error(err)
   }
 }
 

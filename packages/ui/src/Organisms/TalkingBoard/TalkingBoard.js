@@ -8,16 +8,15 @@ import { Wrapper } from './styled'
 const TalkingBoard = ({ maxHeight, messages, onFinish }) => {
   const [lastMessageIndex, setLastMessageIndex] = useState(0)
   const list = messages.filter((msg, index) => index <= lastMessageIndex)
+  const isLastPresentedMessage = () => lastMessageIndex + 1 == messages.length
 
-  useEffect(() => {
-    if (lastMessageIndex === messages.length) {
-      onFinish(lastMessageIndex)
-    }
-  }, [messages.length, lastMessageIndex])
-
-  const onFinishPresent = () => {
+  const onFinishPresent = (type) => {
     if (lastMessageIndex < messages.length) {
       setLastMessageIndex(lastMessageIndex + 1)
+    }
+    if (type === 'received' && isLastPresentedMessage()) {
+      // finished load all
+      onFinish(lastMessageIndex)
     }
   }
 
@@ -39,12 +38,13 @@ const TalkingBoard = ({ maxHeight, messages, onFinish }) => {
 
 TalkingBoard.defaultProps = {
   maxHeight: null,
-  onFinish: null,
+  onFinish: () => {},
 }
 
 TalkingBoard.propTypes = {
   messages: PropTypes.array,
   maxHeight: PropTypes.string,
+  onFinish: PropTypes.func,
   onFinishMessages: PropTypes.func,
 }
 

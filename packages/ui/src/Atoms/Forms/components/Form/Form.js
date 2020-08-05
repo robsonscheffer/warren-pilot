@@ -6,7 +6,9 @@ const Form = ({ onSubmit, validationRules, children, ...props }) => {
   const methods = useForm()
   return (
     <FormProvider {...methods}>
-      <form onSubmit={methods.handleSubmit(onSubmit)}>{children}</form>
+      <form autoComplete="off" onSubmit={methods.handleSubmit(onSubmit)}>
+        {children}
+      </form>
     </FormProvider>
   )
 }

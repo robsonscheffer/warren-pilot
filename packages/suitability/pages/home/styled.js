@@ -1,19 +1,22 @@
 import styled from 'styled-components'
-
-const TalkingBoardSection = styled.section`
-  padding-top: 50px;
+const Container = styled.section`
   max-width: 912px;
   margin: 0 auto;
+`
+
+const TalkingBoardSection = styled(Container)`
+  padding-top: 50px;
   padding-bottom: 115px;
 `
 
 const FooterBar = styled.footer`
   position: fixed;
   box-sizing: border-box;
+  padding: 40px 0px;
   width: 100%;
   height: 115px;
   bottom: 0px;
-  transition: opacity ease-in-out 0.2s;
+  transition: opacity ease-in-out 0.4s;
   background-color: ${(props) => props.theme.colors.lightGray};
   display: none;
   ${(props) =>
@@ -23,4 +26,4 @@ const FooterBar = styled.footer`
   `}
 `
 
-export { TalkingBoardSection, FooterBar }
+export { Container, FooterBar, TalkingBoardSection }
