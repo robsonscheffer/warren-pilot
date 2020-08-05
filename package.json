@@ -6,10 +6,11 @@
   ],
   "scripts": {
     "bootstrap": "lerna bootstrap",
+    "dev": "lerna run dev --parallel",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "precommit": "lint-staged",
-    "dev:ui": "lerna run storybook --scope @warren/ui",
+    "dev:ui": "lerna run dev --scope @warren/ui",
     "dev:suitability": "lerna run dev --scope @warren/suitability --parallel"
   },
   "devDependencies": {

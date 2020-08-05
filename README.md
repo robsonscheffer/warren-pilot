@@ -41,9 +41,14 @@ Na raiz do repositório rode
 yarn dev:ui
 ```
 
+Para subir todos os pacotes ao mesmo tempo rode na raíz
+
+`lerna run dev --parallel` ou `yarn dev`
+
 ##### ROADMAP
 
 - Exportar módulo do pacote de _@warren/ui_
+- Resolver algumas questões de performance do styled-components
 - Tratamento de erros de API, criar ErrorBoundaries no UI pra gerir.
 - Separar chamadas de API em um novo pacote _@warren/api_
 - Testes geral de _unit_ e _e2e_ :(
@@ -51,5 +56,5 @@ yarn dev:ui
 - Microanimações e microinterações em componetens.
 
 > Aprendi bastante fazendo novamente essa arquitetura, gosto da liberdade que dá, mesmo sofrendo em alguns momentos com _lerna_ (quem nunca?)
-
-> Não gostei de codar sozinho :(, a colaboração é essencial pra criatividade e construção de soluções.
+> Não gostei de codar sozinho :(, a colaboração é essencial pra criatividade.
+> Você verá algumas menções para _Senhor dos anéis_ como "loren ipsum"

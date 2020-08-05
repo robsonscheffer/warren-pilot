@@ -12,8 +12,8 @@
   ],
   "scripts": {
     "test": "echo \"Error: run tests from root\" && exit 1",
-    "dev": "microbundle watch",
-    "storybook": "start-storybook -p 6006",
+    "build": "microbundle watch",
+    "dev": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
   "peerDependencies": {
