@@ -21,8 +21,7 @@ const FormField = styled.input`
   ${color}
 
   ::placeholder {
-    ${color}
-    opacity: 0.5;
+    color: ${(props) => props.theme.colors.placeholder};
     font-family:inherit;
   }
 `

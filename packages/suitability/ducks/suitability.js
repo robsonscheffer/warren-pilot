@@ -7,6 +7,7 @@ export const Types = {
   SAVE_USER_MESSAGE: 'SAVE_USER_MESSAGE',
   FORM_DATA_RECEIVED: 'FORM_DATA_RECEIVED',
   FINISH_TALK: 'FINISH_TALK',
+  SAVE_USER_PROFILE: 'SAVE_USER_PROFILE',
 }
 
 const initialState = {
@@ -15,8 +16,9 @@ const initialState = {
   finished: false,
   messages: [],
   answers: {},
+  user: {},
+  showForm: false,
   form: {
-    show: false,
     inputs: [],
     buttons: [],
     checkbox: [],
@@ -37,7 +39,7 @@ export default function reducer(state = initialState, action) {
     case Types.START_TALK:
       return { ...state, started: true }
     case Types.FORM_VISIBILITY:
-      return { ...state, form: { ...state.form, show: action.status } }
+      return { ...state, showForm: action.status }
     case Types.MESSAGES_RECEIVED:
       return { ...state, messages: [...state.messages, ...action.payload] }
     case Types.SAVE_USER_MESSAGE:
@@ -47,6 +49,10 @@ export default function reducer(state = initialState, action) {
       }
     case Types.FORM_DATA_RECEIVED:
       return { ...state, form: action.payload }
+    case Types.SAVE_USER_PROFILE:
+      return { ...state, user: action.payload }
+    case Types.FINISH_TALK:
+      return { ...state, finished: true }
     default:
       return state
   }
@@ -95,15 +101,23 @@ export function addUserResponse(payload) {
   }
 }
 
-export function finishTalk() {
+export function finishTalk(payload) {
   return {
     type: Types.FINISH_TALK,
+    payload,
   }
 }
 
 export function formDataReceived(payload) {
   return {
     type: Types.FORM_DATA_RECEIVED,
+    payload,
+  }
+}
+
+export function saveUserProfile(payload) {
+  return {
+    type: Types.SAVE_USER_PROFILE,
     payload,
   }
 }

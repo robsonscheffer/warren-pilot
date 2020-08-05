@@ -8,7 +8,7 @@ import { WrapperSent } from './styled'
 
 const Message = ({ text, label, onFinish }) => {
   useEffect(() => {
-    onFinish()
+    onFinish('sent')
   }, [text])
 
   return (

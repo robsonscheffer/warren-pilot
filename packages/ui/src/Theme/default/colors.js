@@ -6,4 +6,5 @@ export default {
   darkGray: '#B0B1BD',
   textBody: '#2E2D33',
   textBodyInverse: '#FFFFFF',
+  placeholder: '#cccccc',
 }

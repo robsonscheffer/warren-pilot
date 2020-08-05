@@ -19,3 +19,12 @@ export const parseApiMessages = (messages) => {
     return { type: 'received', origin: null, text: message.value }
   })
 }
+
+export const FinishSuitability = (params) => {
+  const options = {
+    context: 'suitability',
+    // subcontext: 'suitability_new_profiles',
+    ...params,
+  }
+  return axios.post(MESSAGE_FINISH_URL, options)
+}

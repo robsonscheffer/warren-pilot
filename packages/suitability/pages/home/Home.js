@@ -6,8 +6,7 @@ import InputBar from '@warren/ui/src/Organisms/InputBar'
 import TalkingBoard from '@warren/ui/src/Organisms/TalkingBoard'
 
 import withData from '../../ducks/helpers/withData'
-import { TalkingBoardSection, FooterBar } from './styled'
-import { Button } from '@warren/ui/src/Atoms'
+import { TalkingBoardSection, FooterBar, Container } from './styled'
 
 import {
   startTalk as startTalkAction,
@@ -23,6 +22,8 @@ const Home = ({
   saveUserMessage,
   answers,
   setFormVisibility,
+  finished,
+  showForm,
 }) => {
   useEffect(() => {
     startTalk()
@@ -72,14 +73,35 @@ const Home = ({
     }
   })
 
+  if (!buttons.length && fields.length) {
+    fields.push({
+      field: 'button',
+      children: 'OK',
+      type: 'submit',
+      width: '100%',
+    })
+  }
+
+  if (finished) {
+    buttons.push({
+      field: 'button',
+      children: 'VER MEU PERFIL',
+      type: 'submit',
+      size: 'medium',
+      width: '100%',
+    })
+  }
+
   const onSubmit = (data) => {
+    if (finished) {
+      alert('REDIRECT')
+      return
+    }
     saveUserMessage({
       answers: data,
       id: form.id,
     })
   }
-
-  const allData = [...fields, ...buttons]
 
   return (
     <Fragment>
@@ -99,12 +121,12 @@ const Home = ({
         />
       </TalkingBoardSection>
 
-      <FooterBar show={form.show}>
-        <InputBar fields={allData} onSubmit={onSubmit} width="912px">
-          <Button type="submit" size="medium">
-            OK
-          </Button>
-        </InputBar>
+      <FooterBar show={showForm}>
+        <Container>
+          {(showForm || finished) && (
+            <InputBar fields={fields} buttons={buttons} onSubmit={onSubmit} />
+          )}
+        </Container>
       </FooterBar>
     </Fragment>
   )
