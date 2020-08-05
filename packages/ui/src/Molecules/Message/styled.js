@@ -17,21 +17,4 @@ const WrapperSent = styled(Wrapper)`
   text-align: right;
 `
 
-const Typewriter = styled.p`
-  display: inline-block;
-  overflow: hidden;
-  animation: typing 4s steps(30, end);
-  white-space: nowrap;
-  /* box-sizing: border-box; */
-
-  @keyframes typing {
-    from {
-      width: 0%;
-    }
-    to {
-      width: 100%;
-    }
-  }
-`
-
-export { WrapperReceived, WrapperSent, Typewriter }
+export { WrapperReceived, WrapperSent }

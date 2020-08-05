@@ -12,10 +12,9 @@ import {
 const BaseStyle = styled.button`
   background: transparent;
   cursor: pointer;
-  min-width: 0;
-  width: 100%;
+  min-width: 100px;
+  width: fit-content;
   border: none;
-  padding: 0;
   outline: none;
   font-size: 1rem;
   text-transform: uppercase;
@@ -48,6 +47,9 @@ const BaseStyle = styled.button`
       }
   `}
 `
+BaseStyle.defaultProps = {
+  px: [2],
+}
 
 const Button = styled(BaseStyle)(
   variant({

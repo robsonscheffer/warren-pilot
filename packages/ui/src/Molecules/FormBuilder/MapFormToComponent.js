@@ -4,6 +4,7 @@ import { Button } from '../../Atoms'
 const MapFormToComponent = {
   input: Input,
   text: Input,
+  email: Input,
   number: Input,
   button: Button,
   // radio: Radio,

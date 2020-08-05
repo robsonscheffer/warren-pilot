@@ -1,102 +1,86 @@
-import { Fragment } from 'react'
+import { Fragment, useEffect, useMemo } from 'react'
 import Head from 'next/head'
-import styles from '../../styles/Home.module.css'
 
 import NavBar from '@warren/ui/src/Molecules/Navigation/NavBar'
 import InputBar from '@warren/ui/src/Organisms/InputBar'
 import TalkingBoard from '@warren/ui/src/Organisms/TalkingBoard'
-import { AvatarTextIcon, WarrenIcon } from '@warren/ui/src/Atoms/Icon'
 
-const fields = [
-  { field: 'text', mask: null, placeholder: 'Seu nome' },
-  { field: 'number', mask: 'currecy', placeholder: 'R$ 0,00' },
-]
+import withData from '../../ducks/helpers/withData'
+import { TalkingBoardSection, FooterBar } from './styled'
+import { Button } from '@warren/ui/src/Atoms'
 
-const conversation = [
-  {
-    type: 'received',
-    origin: <WarrenIcon />,
-    text:
-      "It's a dangerous business, Frodo, going out your door. You step onto the road, and if you don't keep your feet, there's no knowing where you might be swept off to",
-  },
-  {
-    type: 'sent',
-    origin: <AvatarTextIcon fill="black">S</AvatarTextIcon>,
-    text: "It's the job that's never started as takes longest to finish",
-  },
-  {
-    type: 'received',
-    origin: <AvatarTextIcon variant="secondary">B</AvatarTextIcon>,
-    text:
-      "I am old, Gandalf. I don't look it, but I am beginning to feel it in my heart of hearts. Well-preserved indeed! Why, I feel all thin, sort of stretched, if you know what I mean: like butter that has been scraped over too much bread. That can't be right. I need a change, or something.",
-  },
-  {
-    type: 'received',
-    origin: <AvatarTextIcon fill="textBody">T</AvatarTextIcon>,
-    text:
-      "But in the end it's only a passing thing, this shadow; even darkness must pass.",
-  },
-  {
-    type: 'received',
-    origin: <AvatarTextIcon fill="textBody">T</AvatarTextIcon>,
-    text:
-      "But in the end it's only a passing thing, this shadow; even darkness must pass.",
-  },
-  {
-    type: 'received',
-    origin: <AvatarTextIcon fill="textBody">T</AvatarTextIcon>,
-    text:
-      "But in the end it's only a passing thing, this shadow; even darkness must pass.",
-  },
-  {
-    type: 'received',
-    origin: <AvatarTextIcon fill="textBody">T</AvatarTextIcon>,
-    text:
-      "But in the end it's only a passing thing, this shadow; even darkness must pass.",
-  },
-  {
-    type: 'received',
-    origin: <AvatarTextIcon fill="textBody">T</AvatarTextIcon>,
-    text:
-      "But in the end it's only a passing thing, this shadow; even darkness must pass.",
-  },
-  {
-    type: 'received',
-    origin: <AvatarTextIcon fill="textBody">T</AvatarTextIcon>,
-    text:
-      "But in the end it's only a passing thing, this shadow; even darkness must pass.",
-  },
-  {
-    type: 'received',
-    origin: <AvatarTextIcon fill="textBody">T</AvatarTextIcon>,
-    text:
-      "But in the end it's only a passing thing, this shadow; even darkness must pass.",
-  },
-  {
-    type: 'sent',
-    origin: <AvatarTextIcon fill="black">S</AvatarTextIcon>,
-    text: "It's the job that's never started as takes longest to finish",
-  },
-  {
-    type: 'received',
-    origin: <AvatarTextIcon variant="secondary">B</AvatarTextIcon>,
-    text:
-      "I am old, Gandalf. I don't look it, but I am beginning to feel it in my heart of hearts. Well-preserved indeed! Why, I feel all thin, sort of stretched, if you know what I mean: like butter that has been scraped over too much bread. That can't be right. I need a change, or something.",
-  },
-  {
-    type: 'sent',
-    origin: <AvatarTextIcon fill="black">S</AvatarTextIcon>,
-    text: "It's the job that's never started as takes longest to finish",
-  },
-  {
-    type: 'received',
-    origin: <AvatarTextIcon variant="secondary">B</AvatarTextIcon>,
-    text:
-      "I am old, Gandalf. I don't look it, but I am beginning to feel it in my heart of hearts. Well-preserved indeed! Why, I feel all thin, sort of stretched, if you know what I mean: like butter that has been scraped over too much bread. That can't be right. I need a change, or something.",
-  },
-]
+import {
+  startTalk as startTalkAction,
+  saveUserMessage as saveUserMessageAction,
+  setFormVisibility as setFormVisibilityAction,
+} from '../../ducks/suitability'
+import InputsHelpers from '../../helpers/inputs'
 
-const Home = () => {
+const Home = ({
+  startTalk,
+  messages,
+  form,
+  saveUserMessage,
+  answers,
+  setFormVisibility,
+}) => {
+  useEffect(() => {
+    startTalk()
+  }, [startTalk])
+
+  const messagesMemo = useMemo(() => {
+    return messages.map((message) => {
+      return {
+        ...message,
+        label:
+          (answers.question_name &&
+            answers.question_name.charAt(0).toUpperCase()) ||
+          '',
+      }
+    })
+  }, [messages.length])
+
+  const fields = form.inputs.map((field) => {
+    if (InputsHelpers[field.mask]) {
+      return {
+        name: form.id,
+        ...InputsHelpers[field.mask],
+      }
+    }
+    return {
+      name: form.id,
+      ...InputsHelpers.default,
+    }
+  })
+
+  const buttons = form.buttons.map((button) => {
+    return {
+      field: 'button',
+      children: button.label.title,
+      value: button.value,
+      type: 'button',
+      name: form.id,
+      onClick: (e) => {
+        saveUserMessage({
+          answers: {
+            [e.currentTarget.name]: e.currentTarget.value,
+          },
+          label: e.currentTarget.innerHTML,
+          id: form.id,
+        })
+      },
+    }
+  })
+
+  const onSubmit = (data) => {
+    saveUserMessage({
+      answers: data,
+      id: form.id,
+    })
+  }
+
+  const allData = [...fields, ...buttons]
+
   return (
     <Fragment>
       <Head>
@@ -107,18 +91,30 @@ const Home = () => {
       </Head>
 
       <NavBar text="FALE COM O WARREN" />
-      <section className={styles.TalkingBoard}>
-        <TalkingBoard messages={conversation} maxHeight="60%" />
-      </section>
+      <TalkingBoardSection>
+        <TalkingBoard
+          messages={messagesMemo}
+          onFinish={() => setFormVisibility(true)}
+          maxHeight="60%"
+        />
+      </TalkingBoardSection>
 
-      <footer className={styles.FooterBar}>
-        <InputBar
-          fields={fields}
-          onSubmit={(data) => console.log(data)}
-        ></InputBar>
-      </footer>
+      <FooterBar show={form.show}>
+        <InputBar fields={allData} onSubmit={onSubmit} width="912px">
+          <Button type="submit" size="medium">
+            OK
+          </Button>
+        </InputBar>
+      </FooterBar>
     </Fragment>
   )
 }
 
-export default Home
+export default withData({
+  actions: {
+    startTalk: startTalkAction,
+    saveUserMessage: saveUserMessageAction,
+    setFormVisibility: setFormVisibilityAction,
+  },
+  states: (state) => state.suitability,
+})(Home)

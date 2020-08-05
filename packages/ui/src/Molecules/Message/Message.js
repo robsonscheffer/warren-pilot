@@ -1,40 +1,35 @@
-import React, { useMemo } from 'react'
+import React, { memo, useEffect } from 'react'
 import PropTypes from 'prop-types'
 
+import { AvatarTextIcon } from '../../Atoms/Icon'
 import { Text } from '../../Atoms/Typography'
 
-import { WrapperReceived, WrapperSent, Typewriter } from './styled'
+import { WrapperSent } from './styled'
 
-const Message = ({ type, text, origin }) => {
-  const textMessage = useMemo(() => {
-    return (
-      <Text py={[1]} mb={[1]} fontSize="medium" lineHeight="medium">
-        {text}
-      </Text>
-    )
+const Message = ({ text, label, onFinish }) => {
+  useEffect(() => {
+    onFinish()
   }, [text])
-
-  if (type === 'received') {
-    return (
-      <WrapperReceived>
-        {origin}
-        {textMessage}
-      </WrapperReceived>
-    )
-  }
 
   return (
     <WrapperSent>
-      {textMessage}
-      {origin}
+      <Text py={[1]} mb={[1]} fontSize="medium" lineHeight="medium">
+        {text}
+      </Text>
+      <AvatarTextIcon fill="#000">{label}</AvatarTextIcon>
     </WrapperSent>
   )
 }
 
-Message.propTypes = {
-  text: PropTypes.string.isRequired,
-  type: PropTypes.oneOf(['received', 'sent']).isRequired,
-  origin: PropTypes.oneOfType([PropTypes.string, PropTypes.node]).isRequired,
+Message.defaultProps = {
+  label: '',
+  onFinish: () => {},
 }
 
-export default Message
+Message.propTypes = {
+  label: PropTypes.string,
+  text: PropTypes.string.isRequired,
+  onFinish: PropTypes.func,
+}
+
+export default memo(Message)

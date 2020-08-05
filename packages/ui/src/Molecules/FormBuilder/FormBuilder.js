@@ -1,9 +1,7 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
 
-import { Form, Input } from '../../Atoms/Forms'
-
-import { Wrapper } from './styled'
+import { Form } from '../../Atoms/Forms'
 
 import DynamicForm from './MapFormToComponent'
 
@@ -17,12 +15,12 @@ const FormBuilder = ({ onSubmit, fields, children }) => {
   }
 
   return (
-    <Wrapper>
+    <Fragment>
       <Form onSubmit={onSubmit}>
         {fields.map((field, index) => renderComponent(field, index))}
         {children}
       </Form>
-    </Wrapper>
+    </Fragment>
   )
 }
 

@@ -15,7 +15,9 @@ const NavBar = ({ text, action }) => (
       </Button>
     </Action>
     <Area>
-      <HeadingS color="textBodyInverse">{text}</HeadingS>
+      <HeadingS tag="h1" color="textBodyInverse">
+        {text}
+      </HeadingS>
     </Area>
   </NavWrapper>
 )

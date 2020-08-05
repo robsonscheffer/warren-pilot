@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo } from 'react'
 import PropTypes from 'prop-types'
 import DynamicComponent from '../../DynamicComponent'
 
@@ -24,4 +24,4 @@ Text.propTypes = {
   children: PropTypes.node.isRequired,
 }
 
-export default Text
+export default memo(Text)

@@ -12,24 +12,24 @@ const Tolkien = () => <AvatarTextIcon fill="textBody">T</AvatarTextIcon>
 const conversation = [
   {
     type: 'received',
-    origin: Warren(),
+    label: 'R',
     text:
       "It's a dangerous business, Frodo, going out your door. You step onto the road, and if you don't keep your feet, there's no knowing where you might be swept off to",
   },
   {
     type: 'sent',
-    origin: Me(),
+    label: 'R',
     text: "It's the job that's never started as takes longest to finish",
   },
   {
     type: 'received',
-    origin: Bilbo(),
+    label: 'R',
     text:
       "I am old, Gandalf. I don't look it, but I am beginning to feel it in my heart of hearts. Well-preserved indeed! Why, I feel all thin, sort of stretched, if you know what I mean: like butter that has been scraped over too much bread. That can't be right. I need a change, or something.",
   },
   {
     type: 'received',
-    origin: Tolkien(),
+    label: 'R',
     text:
       "But in the end it's only a passing thing, this shadow; even darkness must pass.",
   },
@@ -53,24 +53,24 @@ Use an list of elements to show messages.
 const conversation = [
   {
     type: 'received',
-    origin: <WarrenIcon />,
+    label: 'R',
     text:
       "It's a dangerous business, Frodo, going out your door. You step onto the road, and if you don't keep your feet, there's no knowing where you might be swept off to",
   },
   {
     type: 'sent',
-    origin: <AvatarTextIcon fill="black">S</AvatarTextIcon>,
+    label: 'R',
     text: "It's the job that's never started as takes longest to finish",
   },
   {
     type: 'received',
-    origin: <AvatarTextIcon variant="secondary">B</AvatarTextIcon>,
+    label: 'R',
     text:
       "I am old, Gandalf. I don't look it, but I am beginning to feel it in my heart of hearts. Well-preserved indeed! Why, I feel all thin, sort of stretched, if you know what I mean: like butter that has been scraped over too much bread. That can't be right. I need a change, or something.",
   },
   {
     type: 'received',
-    origin: <AvatarTextIcon fill="textBody">T</AvatarTextIcon>,
+    label: 'R',
     text:
       "But in the end it's only a passing thing, this shadow; even darkness must pass.",
   },

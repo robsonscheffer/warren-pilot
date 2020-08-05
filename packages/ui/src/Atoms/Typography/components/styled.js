@@ -41,4 +41,4 @@ const StyledDynamicComponent = styled.div`
   })}
 `
 
-export default StyledDynamicComponent
+export { StyledDynamicComponent }

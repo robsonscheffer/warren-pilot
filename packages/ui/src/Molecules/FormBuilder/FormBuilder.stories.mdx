@@ -7,6 +7,16 @@ import FormBuilder from './index'
 const fields = [
   { field: 'text', name: 'name', mask: null, placeholder: 'Seu nome' },
   { field: 'number', name: 'total', mask: 'currecy', placeholder: 'R$ 0,00' },
+  {
+    field: 'button',
+    children: 'OK',
+    value: 'A',
+    type: 'button',
+    name: 'test',
+    onClick: (e) => {
+      console.log('BUTTON', e.currentTarget.value)
+    },
+  },
 ]
 
 <Meta title="Molecules|FormBuilder" component={FormBuilder} />
@@ -19,6 +29,16 @@ Use the `FormBuilder` to automatic create forms
 const fields = [
   { field: 'text', name: 'name', mask: null, placeholder: 'Seu nome' },
   { field: 'number', name: 'total', mask: 'currecy', placeholder: 'R$ 0,00' },
+  {
+    field: 'button',
+    children: 'OK',
+    value: 'A',
+    type: 'button',
+    name: 'test',
+    onClick: (e) => {
+      console.log('BUTTON', e.currentTarget.value)
+    },
+  },
 ]
 ```
 

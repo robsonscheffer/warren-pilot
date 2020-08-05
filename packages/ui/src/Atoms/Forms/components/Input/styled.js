@@ -22,6 +22,7 @@ const FormField = styled.input`
 
   ::placeholder {
     ${color}
+    opacity: 0.5;
     font-family:inherit;
   }
 `

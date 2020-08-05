@@ -1,3 +1,3 @@
-import { Atoms } from './Atoms'
+import * as Atoms from './Atoms'
 
 export { Atoms }

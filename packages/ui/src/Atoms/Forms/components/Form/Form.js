@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { useForm, useFormContext, FormProvider } from 'react-hook-form'
+import { useForm, FormProvider } from 'react-hook-form'
 
 const Form = ({ onSubmit, validationRules, children, ...props }) => {
   const methods = useForm()

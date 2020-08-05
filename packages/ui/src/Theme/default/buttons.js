@@ -2,10 +2,8 @@ export default {
   sizes: {
     small: {
       height: '29px',
-      minWidth: '150px',
-      width: 'fit-content',
       fontSize: 'small',
-      padding: [1],
+      px: [1],
     },
     medium: { height: '49px', fontSize: 'small' },
     large: { height: '69px', fontSize: 'medium' },
