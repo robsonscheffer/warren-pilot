@@ -1,0 +1,82 @@
+import { Fragment } from 'react'
+import { Meta, Story, Preview } from '@storybook/addon-docs/blocks'
+
+import { Text, Footnote } from './index'
+
+<Meta title="Atoms|Typography/Body" />
+
+# Typography/Body
+
+Used to present common text on screen with `p, span, div...` tags
+
+### Text
+
+<Preview>
+  <Story name="Text">
+    <Fragment>
+      <Text>
+        Oi, eu sou o Warren! Vou ajudar você a investir o seu dinheiro da melhor
+        forma! Para isso, quero conhecer você melhor.
+      </Text>
+    </Fragment>
+  </Story>
+</Preview>
+
+### Footnote
+
+<Preview>
+  <Story name="Footnote">
+    <Fragment>
+      <Footnote>
+        What's the Elvish word for 'friend'? Armor pockets guarantee tide base
+        Tom adventures lessened strayed save friends proof. Pouring master's
+        brook hero painted J.R.R. Tolkien twice troublemakers. Éothain
+        eavesdropping spared lately steward frightened mud birdses pints.
+      </Footnote>
+    </Fragment>
+  </Story>
+</Preview>
+
+### Variations
+
+> Color, padings, font-style, borders...
+
+<Preview>
+  <Story name="Variations">
+    <Fragment>
+      <Text
+        color="textBodyInverse"
+        bg="primary"
+        p="10px"
+        fontStyle="italic"
+        borderRadius={10}
+        mb="10px"
+      >
+        What's the Elvish word for 'friend'? Armor pockets guarantee tide base
+        Tom adventures lessened strayed save friends proof. Pouring master's
+        brook hero painted J.R.R. Tolkien twice troublemakers. Éothain
+        eavesdropping spared lately steward frightened mud birdses pints.
+      </Text>
+      <Text
+        color="textBody"
+        bg="secondary"
+        p="10px"
+        fontStyle="italic"
+        borderRadius={10}
+      >
+        What's the Elvish word for 'friend'? Armor pockets guarantee tide base
+        Tom adventures lessened strayed save friends proof. Pouring master's
+        brook hero painted J.R.R. Tolkien twice troublemakers. Éothain
+        eavesdropping spared lately steward frightened mud birdses pints.
+      </Text>
+    </Fragment>
+  </Story>
+</Preview>
+
+### Extend all props from _styled-system_ pkg
+
+_Styled system gives you great power, use with wisdom_
+
+https://styled-system.com/table
+
+<Props of={Text} />

@@ -1,0 +1,45 @@
+import { Fragment } from 'react'
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks'
+
+import { Grid } from '../../core/Storybook/Fragments'
+
+import InputBar from './index'
+const fields = [
+  { field: 'text', name: 'name', mask: null, placeholder: 'Seu nome' },
+  // { field: 'number', name: 'total', mask: 'currecy', placeholder: 'R$ 0,00' },
+  {
+    field: 'button',
+    name: 'bt-ok',
+    children: 'OK',
+    size: 'small',
+    type: 'submit',
+  },
+]
+
+<Meta title="Organisms|Chat/InputBar" component={InputBar} />
+
+### InputBar
+
+Add a user interactive form to input data
+
+```
+const fields = [
+  { field: 'text', mask: null, placeholder: 'Seu nome' },
+  { field: 'number', mask: 'currecy', placeholder: 'R$ 0,00' },
+]
+```
+
+<Preview>
+  <Story name="Text message input">
+    <Grid columns={1}>
+      <InputBar
+        fields={fields}
+        onSubmit={(data) => console.log(data)}
+      ></InputBar>
+    </Grid>
+  </Story>
+</Preview>
+
+## Props
+
+<Props of={InputBar} />

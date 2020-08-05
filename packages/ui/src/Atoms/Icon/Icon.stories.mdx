@@ -1,0 +1,68 @@
+import { Fragment } from 'react'
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks'
+
+import { Grid, Row } from '../../core/Storybook/Fragments'
+
+import Icon from './Icon.js'
+import { WarrenIcon, ArrowIcon, AvatarTextIcon } from './index'
+
+<Meta title="Atoms|Icons|SVG" component={Icon} />
+
+# Icons
+
+Simple SVG as React components
+
+### Default`s
+
+<Preview>
+  <Story name="Default`s">
+    <Grid columns={12}>
+      <Boxed>
+        <WarrenIcon />
+      </Boxed>
+      <Boxed>
+        <ArrowIcon />
+      </Boxed>
+      <Boxed>
+        <AvatarTextIcon>R</AvatarTextIcon>
+      </Boxed>
+      <Boxed>
+        <AvatarTextIcon variant="secondary">R</AvatarTextIcon>
+      </Boxed>
+    </Grid>
+  </Story>
+</Preview>
+
+### Custom fill colors
+
+<Preview>
+  <Story name="Custom Colors">
+    <Row bg="lightGray">
+      <Grid columns={12}>
+        <Boxed>
+          <WarrenIcon fill="#fff" />
+        </Boxed>
+        <Boxed>
+          <ArrowIcon fill="#fff" />
+        </Boxed>
+        <Boxed>
+          <WarrenIcon fill="#000" />
+        </Boxed>
+        <Boxed>
+          <ArrowIcon fill="#000" />
+        </Boxed>
+        <Boxed>
+          <WarrenIcon fill="blue" />
+        </Boxed>
+        <Boxed>
+          <ArrowIcon fill="red" />
+        </Boxed>
+        <Boxed>
+          <AvatarTextIcon fill="#000">R</AvatarTextIcon>
+        </Boxed>
+      </Grid>
+    </Row>
+  </Story>
+</Preview>
+
+<Props of={Icon} />

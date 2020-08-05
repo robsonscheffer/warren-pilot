@@ -1,0 +1,59 @@
+import { Fragment } from 'react'
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks'
+
+import { Grid } from '../../core/Storybook/Fragments'
+import { Button } from '../../Atoms'
+import FormBuilder from './index'
+const fields = [
+  { field: 'text', name: 'name', mask: null, placeholder: 'Seu nome' },
+  { field: 'number', name: 'total', mask: 'currecy', placeholder: 'R$ 0,00' },
+  {
+    field: 'button',
+    children: 'OK',
+    value: 'A',
+    type: 'button',
+    name: 'test',
+    onClick: (e) => {
+      console.log('BUTTON', e.currentTarget.value)
+    },
+  },
+]
+
+<Meta title="Molecules|FormBuilder" component={FormBuilder} />
+
+### FormBUilder
+
+Use the `FormBuilder` to automatic create forms
+
+```
+const fields = [
+  { field: 'text', name: 'name', mask: null, placeholder: 'Seu nome' },
+  { field: 'number', name: 'total', mask: 'currecy', placeholder: 'R$ 0,00' },
+  {
+    field: 'button',
+    children: 'OK',
+    value: 'A',
+    type: 'button',
+    name: 'test',
+    onClick: (e) => {
+      console.log('BUTTON', e.currentTarget.value)
+    },
+  },
+]
+```
+
+<Preview>
+  <Story name="Dynamic form">
+    <Grid columns={1}>
+      <FormBuilder fields={fields} onSubmit={console.log}>
+        <Grid columns={6}>
+          <Button type="submit">Enviar</Button>
+        </Grid>
+      </FormBuilder>
+    </Grid>
+  </Story>
+</Preview>
+
+## Props
+
+<Props of={FormBuilder} />

@@ -1,0 +1,107 @@
+import { Fragment } from 'react'
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks'
+import { Grid, Row } from '../../../../core/Storybook/Fragments'
+
+import Input from './index'
+
+<Meta title="Atoms|Forms/Input`s" component={Input} />
+
+### Input
+
+Abstract component to input data
+
+The type prop works like the type from HTMLElement `input` could be `email, number or text`, defaults to `text`
+
+```
+  ...type="number"...
+```
+
+### Input type `text`
+
+<Preview>
+  <Story name="Input text">
+    <Row bg="lightGray">
+      <Grid columns={1}>
+        <Input name="example" placeholder="R$ 0,00" />
+      </Grid>
+    </Row>
+  </Story>
+</Preview>
+
+### Input type `number`
+
+Resolves as an input type `number`
+
+<Preview>
+  <Story name="Input number">
+    <Row bg="lightGray">
+      <Grid columns={1}>
+        <Input
+          type="number"
+          name="example"
+          placeholder="R$ 0,00"
+          validationRules={{
+            required: true,
+            min: 0,
+            max: 99,
+          }}
+        />
+      </Grid>
+    </Row>
+  </Story>
+</Preview>
+
+### Input type `email`
+
+Resolves as an input type `email`
+
+<Preview>
+  <Story name="Input email">
+    <Row bg="lightGray">
+      <Grid columns={1}>
+        <Input
+          type="email"
+          name="example"
+          placeholder="you@gmail.com"
+          validationRules={{
+            required: true,
+            min: 0,
+            max: 99,
+          }}
+        />
+      </Grid>
+    </Row>
+  </Story>
+</Preview>
+
+### Validation rules
+
+Use an object with the `validationRules` prop
+
+```
+{
+  required: true,
+}
+```
+
+<Preview>
+  <Story name="Validations">
+    <Row bg="lightGray">
+      <Grid columns={1}>
+        <Input
+          name="example"
+          placeholder="R$ 0,00"
+          validationRules={{
+            required: true,
+          }}
+        />
+      </Grid>
+    </Row>
+  </Story>
+</Preview>
+
+You can see more about on https://github.com/react-hook-form/react-hook-form/tree/master/examples
+
+## Props
+
+<Props of={Input} />

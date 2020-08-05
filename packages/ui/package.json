@@ -1,0 +1,45 @@
+{
+  "name": "@warren/ui",
+  "version": "0.0.1",
+  "private": true,
+  "main": "dist/index.js",
+  "directories": {
+    "src": "src/**/*",
+    "test": "__tests__"
+  },
+  "files": [
+    "src/**/*"
+  ],
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1",
+    "dev": "microbundle watch",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
+  },
+  "peerDependencies": {
+    "prop-types": "^15.7.2",
+    "react": ">=16.13.0",
+    "react-dom": ">=16.13.0"
+  },
+  "dependencies": {
+    "react-hook-form": "^6.2.0",
+    "react-typist": "^2.0.5",
+    "styled-components": "^5.1.1",
+    "styled-system": "^5.1.5"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.11.0",
+    "@babel/preset-env": "^7.11.0",
+    "@babel/preset-react": "^7.10.4",
+    "@storybook/addon-actions": "^5.3.19",
+    "@storybook/addon-docs": "^5.3.19",
+    "@storybook/addon-links": "^5.3.19",
+    "@storybook/addons": "^5.3.19",
+    "@storybook/react": "^5.3.19",
+    "babel-loader": "^8.1.0",
+    "microbundle": "^0.12.3"
+  }
+}

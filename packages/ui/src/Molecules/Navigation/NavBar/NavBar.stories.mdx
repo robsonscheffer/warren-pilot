@@ -1,0 +1,22 @@
+import { Fragment } from 'react'
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks'
+
+import { Grid } from '../../../core/Storybook/Fragments'
+
+import NavBar from './index'
+
+<Meta title="Molecules|Navigation" component={NavBar} />
+
+## Navigation
+
+<Preview>
+  <Story name="NavBar">
+    <Grid columns={1}>
+      <NavBar text="SPAWN ANGMAR!" />
+    </Grid>
+  </Story>
+</Preview>
+
+## Props
+
+<Props of={NavBar} />
