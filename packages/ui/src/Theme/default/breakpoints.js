@@ -1,4 +1,4 @@
-const breakpoints = ['600px', '960px']
+const breakpoints = ['768px', '960px']
 // aliases
 breakpoints.tablet = breakpoints[0]
 breakpoints.desktop = breakpoints[1]

@@ -1,9 +1,10 @@
 import styled from 'styled-components'
+
 const Container = styled.section`
   max-width: 912px;
   margin: 0 auto;
+  padding: 0 16px;
 `
-
 const TalkingBoardSection = styled(Container)`
   padding-top: 50px;
   padding-bottom: 115px;
